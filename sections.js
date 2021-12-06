@@ -3,44 +3,7 @@ let ratingSizeScale, ratingXScale, ratingYScale, categoryColorScale
 let simulation, nodes
 let categoryLegend, salaryLegend
 
-// const categories = ['France', 'Italy', 'Australia', 'Argentina', 'Austria', 'Brazil', 'Bulgaria','Canada', 'Chile','China','Croatia', 'Georgia','Germany', 'Greece','Hungary','Israel', 'Lebanon', 'Moldova', 'New Zealand', 'Mexico', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'South Africa', 'Spain', 'Switzerland', 'Turkey', 'United States', 'Uruguay']
 
-// Þriðja talan er bara avarage laun eftir útskrift, í okkar case væri það avarage rating eftir löndum eða verð
-
-// const categoriesXY = {'France': [0, 400, 5, 23.9],
-//                         'Italy': [0, 600, 43538, 48.3],
-//                         'Australia': [0, 800, 41890, 50.9],
-//                         'Argentina': [0, 200, 42200, 48.3],
-//                         'Austria': [200, 400, 42745, 31.2],
-//                         'Brazil': [200, 600, 36900, 40.5],
-//                         'Bulgaria': [200, 600, 36900, 40.5],
-//                         'Chile': [200, 800, 36342, 35.0],
-//                         'Canada': [200, 600, 36900, 40.5],
-//                         'China': [200, 600, 36900, 40.5],
-//                         'Croatia': [200, 600, 36900, 40.5],
-//                         'Germany': [200, 200, 33062, 60.4],
-//                         'Georgia': [200, 600, 36900, 40.5],
-//                         'Greece': [400, 400, 36825, 79.5],
-//                         'Hungary': [200, 600, 36900, 40.5],
-//                         'Israel': [200, 600, 36900, 40.5],
-//                         'Lebanon': [400, 600, 37344, 55.4],
-//                         'Moldova': [400, 800, 36421, 58.7],
-//                         'New Zealand': [400, 200, 32350, 74.9],
-//                         'Mexico': [600, 400, 31913, 63.2],
-//                         'Portugal': [600, 600, 30100, 79.4],
-//                         'Romania': [600, 800, 34500, 65.9],
-//                         'Slovakia': [600, 800, 34500, 65.9],
-//                         'Slovenia': [600, 800, 34500, 65.9],
-//                         'South Africa': [600, 800, 34500, 65.9],
-//                         'Spain': [600, 800, 34500, 65.9],
-//                         'Switzerland': [600, 800, 34500, 65.9],
-//                         'Turkey': [600, 800, 34500, 65.9],
-//                         'United States': [600, 200, 35000, 77.1],
-//                         'Uruguay': [600, 800, 34500, 65.9]}
-
-// const margin = {left: 170, top: 50, bottom: 50, right: 20}
-// const width = 1000 - margin.left - margin.right
-// const height = 950 - margin.top - margin.bottom
 
 const region = ['Europe', 'North America', 'South America', 'Africa', 'Asia', 'Oceania']
 
@@ -159,60 +122,9 @@ function createSizeLegend2(){
         .call(sizeLegend2)
 }
 
-// All the initial eleRegionts should be create in the drawInitial function
-// As they are required, their attributes can be modified
-// They can be shown or hidden using their 'opacity' attribute
-// Each eleRegiont should also have an associated class name for easy reference
-
-// set the dimensions and margins of the graph
-// var margin = {top: 10, right: 30, bottom: 30, left: 60},
-//     width = 460 - margin.left - margin.right,
-//     height = 400 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-// function drawInitial(){
-//     createSizeLegend()
-//     createSizeLegend2()
 
 
-// let svg = d3.select("#vis")
-//   .append("svg")
-//     .attr("width", width + margin.left + margin.right)
-//     .attr("height", height + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform",
-//           "translate(" + margin.left + "," + margin.top + ")");
 
-// //Read the data
-// d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv", function(data) {
-
-//   // Add X axis
-//   var x = d3.scaleLinear()
-//     .domain([0, 4000])
-//     .range([ 0, width ]);
-//   svg.append("g")
-//     .attr("transform", "translate(0," + height + ")")
-//     .call(d3.axisBottom(x));
-
-//   // Add Y axis
-//   var y = d3.scaleLinear()
-//     .domain([0, 500000])
-//     .range([ height, 0]);
-//   svg.append("g")
-//     .call(d3.axisLeft(y));
-
-//   // Add dots
-//   svg.append('g')
-//     .selectAll("dot")
-//     .data(data)
-//     .enter()
-//     .append("circle")
-//       .attr("cx", function (d) { return x(d.GrLivArea); } )
-//       .attr("cy", function (d) { return y(d.SalePrice); } )
-//       .attr("r", 1.5)
-//       .style("fill", "#69b3a2")
-
-// })
 
 function drawInitial(){
     createSizeLegend()
@@ -302,17 +214,7 @@ function drawInitial(){
             .attr('stroke-width', 0)
     }
 
-    //Small text label for first graph
-    // svg.selectAll('.small-text')
-    //     .data(dataset)
-    //     .enter()
-    //     .append('text')
-    //         .text((d, i) => d.Country)
-    //         .attr('class', 'small-text')
-    //         .attr('x', margin.left)
-    //         .attr('y', (d, i) => i * 5.2 + 30)
-    //         .attr('font-size', 20)
-    //         .attr('text-anchor', 'end')
+ 
     
     //All the required components for the small multiples charts
     //Initialises the text and rectangles, and sets opacity to 0 
@@ -519,12 +421,7 @@ function draw3(){
                 .text(d => `Average rating: $${d3.format(",.2r")(regionXY[d][2])}`)
         })
 
-    // simulation  
-    //     .force('charge', d3.forceManyBody().strength([2]))
-    //     .force('forceX', d3.forceX(d => regionXY[0] + 200))
-    //     .force('forceY', d3.forceY(d => regionXY[1] - 50))
-    //     .force('collide', d3.forceCollide(d => ratingSizeScale(d.Rating) + 4))
-    //     .alpha(0.7).alphaDecay(0.02).restart()
+
     simulation  
         .force('charge', d3.forceManyBody().strength(20))
         .force('forceX', d3.forceX(d => regionXY[d.Region][0]+400))
@@ -534,139 +431,6 @@ function draw3(){
 
 }
 
-// function draw5(){
-    
-//     let svg = d3.select('#vis').select('svg')
-//     clean('isMultiples')
-
-//     simulation
-//         .force('forceX', d3.forceX(d => regionXY[d.Region][0] + 200))
-//         .force('forceY', d3.forceY(d => regionXY[d.Region][1] - 50))
-//         .force('collide', d3.forceCollide(d => ratingSizeScale(d.Rating) + 4))
-
-//     simulation.alpha(1).restart()
-   
-//     svg.selectAll('.lab-text').transition().duration(300).delay((d, i) => i * 30)
-//         .text(d => `% Female: ${(regionXY[d][3])}%`)
-//         .attr('x', d => regionXY[d][0] + 200)   
-//         .attr('y', d => regionXY[d][1] + 50)
-//         .attr('opacity', 1)
-    
-//     svg.selectAll('.lab-text')
-//         .on('mouseover', function(d, i){
-//             d3.select(this)
-//                 .text(d)
-//         })
-//         .on('mouseout', function(d, i){
-//             d3.select(this)
-//                 .text(d => `% Female: ${(regionXY[d][3])}%`)
-//         })
-   
-//     svg.selectAll('.cat-rect').transition().duration(300).delay((d, i) => i * 30)
-//         .attr('opacity', 0.2)
-//         .attr('x', d => regionXY[d][0] + 120)
-
-//     svg.selectAll('circle')
-//         .transition().duration(400).delay((d, i) => i * 4)
-//             .attr('fill', colorByGender)
-//             .attr('r', d => ratingSizeScale(d.Rating))
-
-// }
-
-// function colorByGender(d, i){
-//     if (d.Region < 0.4){
-//         return 'blue'
-//     } else if (d.Region > 0.6) {
-//         return 'red'
-//     } else {
-//         return 'grey'
-//     }
-// }
-
-// function draw6(){
-//     simulation.stop()
-    
-//     let svg = d3.select("#vis").select("svg")
-//     clean('isScatter')
-
-//     svg.selectAll('.scatter-x').transition().attr('opacity', 0.7).selectAll('.domain').attr('opacity', 1)
-//     svg.selectAll('.scatter-y').transition().attr('opacity', 0.7).selectAll('.domain').attr('opacity', 1)
-
-//     svg.selectAll('circle')
-//         .transition().duration(800).ease(d3.easeBack)
-//         .attr('cx', d => RegionXScale(d.Region))
-//         .attr('cy', d => ratingYScale(d.Rating))
-    
-//     svg.selectAll('circle').transition(1600)
-//         .attr('fill', colorByGender)
-//         .attr('r', 5)
-
-//     svg.select('.best-fit').transition().duration(300)
-//         .attr('opacity', 0.5)
-   
-// }
-
-// function draw7(){
-//     let svg = d3.select('#vis').select('svg')
-
-//     clean('isBubble')
-
-//     simulation
-//         .force('forceX', d3.forceX(d => enrollRegiontScale(d.AvgPrice)))
-//         .force('forceY', d3.forceY(500))
-//         .force('collide', d3.forceCollide(d => enrollRegiontSizeScale(d.AvgPrice) + 2))
-//         .alpha(0.8).alphaDecay(0.05).restart()
-
-//     svg.selectAll('circle')
-//         .transition().duration(300).delay((d, i) => i * 4)
-//         .attr('r', d => enrollRegiontSizeScale(d.AvgPrice))
-//         .attr('fill', d => categoryColorScale(d.Region))
-
-//     //Show enrolRegiont axis (remember to include domain)
-//     svg.select('.enrolRegiont-axis').attr('opacity', 0.5).selectAll('.domain').attr('opacity', 1)
-
-// }
-
-// function draw4(){
-//     let svg = d3.select('#vis').select('svg')
-
-//     clean('isHist')
-
-//     simulation.stop()
-
-//     svg.selectAll('circle')
-//         .transition().duration(600).delay((d, i) => i * 2).ease(d3.easeBack)
-//             .attr('r', 10)
-//             .attr('cx', d => histXScale(d.Midpoint))
-//             .attr('cy', d => histYScale(d.HistCol))
-//             .attr('fill', d => categoryColorScale(d.Region))
-
-//     let xAxis = d3.axisBottom(histXScale)
-//     svg.append('g')
-//         .attr('class', 'hist-axis')
-//         .attr('transform', `translate(0, ${height + margin.top + 10})`)
-//         .call(xAxis)
-
-//     svg.selectAll('.lab-text')
-//         .on('mouseout', )
-// }
-
-// function draw8(){
-//     clean('none')
-
-//     let svg = d3.select('#vis').select('svg')
-//     svg.selectAll('circle')
-//         .transition()
-//         .attr('r', d => ratingSizeScale(d.Rating) * 1.3)
-//         .attr('fill', d => categoryColorScale(d.Region))
-
-//     simulation 
-//         .force('forceX', d3.forceX(500))
-//         .force('forceY', d3.forceY(500))
-//         .force('collide', d3.forceCollide(d => ratingSizeScale(d.Rating) * 1.6 + 4))
-//         .alpha(0.6).alphaDecay(0.05).restart()
-        
-// }
 
 //Array of all the graph functions
 //Will be called from the scroller functionality
@@ -676,11 +440,7 @@ let activationFunctions = [
     draw2,
     draw3
 ]
-    // draw4,
-    // draw5, 
-    // draw6, 
-    // draw7,
-    // draw8
+
 //All the scrolling function
 //Will draw a new graph based on the index provided by the scroll
 
