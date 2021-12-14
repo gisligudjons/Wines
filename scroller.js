@@ -1,3 +1,4 @@
+//Source:
 // https://github.com/vlandham/scroll_demo/blob/gh-pages/js/scroller.js
 
 function scroller(){
