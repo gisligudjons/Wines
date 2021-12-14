@@ -160,7 +160,7 @@ let xAxisGroup = svg.append('g')
             .style('left', (d3.event.pageX + 10)+ 'px')
             .style('top', (d3.event.pageY - 25) + 'px')
             .style('display', 'inline-block')
-            .html(`Country: ${d.Country}
+            .html(`<strong>Country:</strong> ${d.Country}
                 <br> <strong>Region:</strong> ${d.Region} 
                 <br> <strong>Rating:</strong> ${d3.format(",.2r")(d.Rating)+'/5'} 
                 <br> <strong>Average Age:</strong> ${d3.format(",.2r")(d.Age) * -1} years
